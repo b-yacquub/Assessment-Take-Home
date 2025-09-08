@@ -13,6 +13,7 @@ def open_file_as_df(file_path: str):
     '''returns csv as a pandas dataframe'''
     try:
         df = pd.read_csv(file_path)
+        os.remove(file_path)
         return df
     except FileNotFoundError:
         raise FileNotFoundError('file path or name is wrong')
